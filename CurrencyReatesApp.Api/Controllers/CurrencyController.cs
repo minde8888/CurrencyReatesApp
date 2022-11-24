@@ -1,21 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using CurrencyReatesApp.Services.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CurrencyReatesApp.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CurrencyController
+    public class CurrencyController : Controller
     {
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        private readonly CurrencyService _currencyService;
+        public CurrencyController(CurrencyService currencyService)
         {
-            var result = await _userService.SearchAsync(name);
+            _currencyService = currencyService;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Get(string date)
+        {
+            var result = await _currencyService.GetExchangeData(date);
             return Ok(result);
         }
     }

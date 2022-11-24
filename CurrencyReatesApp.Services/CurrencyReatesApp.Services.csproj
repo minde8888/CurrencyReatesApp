@@ -9,6 +9,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="170.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurrencyReatesApp.Domain\CurrencyReatesApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
